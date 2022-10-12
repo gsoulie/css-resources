@@ -4,6 +4,8 @@
 
 ## Méthode 1 - position: sticky
 
+source : https://alvarotrigo.com/blog/sticky-navbar/     
+
 *html*
 
 ````html
