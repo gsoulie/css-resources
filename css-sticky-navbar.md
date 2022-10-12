@@ -1,4 +1,8 @@
+[< Back to main Menu](https://github.com/gsoulie/css-resources/blob/master/index.md)    
 
+# Sticky navbar
+
+## Méthode 1 - position: sticky
 
 *html*
 
@@ -65,3 +69,7 @@ section {
   }
 }
 ````
+
+## Méthode 2
+
+https://codepen.io/starnes/pen/YzqpZaO
