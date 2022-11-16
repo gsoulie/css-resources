@@ -4,3 +4,4 @@
 
 * [Sticky navbar](https://github.com/gsoulie/css-resources/blob/master/css-sticky-navbar.md)     
 * [Collection de layout / pattern prêt à l'emploi](https://csslayout.io/)      
+* [Css défensif](https://defensivecss.dev/)      
