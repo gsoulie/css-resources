@@ -21,3 +21,32 @@
   text-transform: uppercase !important;
 }
 ````
+### Animation underline sur un lien
+
+````html
+<p>
+  <a class="anim-underline-fx" href="#0">How to create an underline fill effect in CSS</a>
+</p>
+````
+
+````css
+.anim-underline-fx {
+  color: darkblue;
+  text-decoration: none;
+  background-image: linear-gradient(to right, darkblue 50%, lightsteelblue 50%);
+  background-size: 200% 3px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  transition: background-position .3s;
+}
+
+.anim-underline-fx:hover {
+  background-position: 0% 100%;
+}
+
+p {
+  max-width: 480px;
+  margin: 0px auto;
+  font-size: 2rem;
+}
+````
