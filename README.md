@@ -3,7 +3,7 @@
 # Css
 
 * [Sticky navbar](https://github.com/gsoulie/css-resources/blob/master/css-sticky-navbar.md)     
-* [Collection de layout / pattern prêt à l'emploi](https://csslayout.io/)      
+* [Collection de layout / pattern prêt à l'emploi](https://csslayout.io/) / https://codyhouse.co/nuggets     
 * [Css défensif](https://defensivecss.dev/)      
 * [Tooltip](https://github.com/gsoulie/css-resources/blob/main/resources/tooltip.md)      
 * [Checkbox animations](https://getcssscan.com/css-checkboxes-examples)     
