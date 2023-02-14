@@ -7,8 +7,9 @@
 * [Css défensif](https://defensivecss.dev/)      
 * [Tooltip](https://github.com/gsoulie/css-resources/blob/main/resources/tooltip.md)      
 * [Checkbox animations](https://getcssscan.com/css-checkboxes-examples)     
+* [Créer des formes avec clip-path](#créer-des-formes-avec-clip-path)       
 
-### Première lettre en majuscule
+## Première lettre en majuscule
 
 ````css
 .title {
@@ -21,7 +22,7 @@
   text-transform: uppercase !important;
 }
 ````
-### Animation underline sur un lien
+## Animation underline sur un lien
 
 ````html
 <p>
@@ -48,5 +49,46 @@ p {
   max-width: 480px;
   margin: 0px auto;
   font-size: 2rem;
+}
+````
+
+## Créer des formes avec clip-path
+
+Tutorial : https://css-tricks.com/the-shapes-of-css/
+
+Exemple de création d'un pentagone
+
+*html*
+````html
+<div class="shield-wrapper">
+  <div class="shield"></div>
+</div>
+````
+
+
+*css*
+````scss
+.shield-wrapper {
+      width: 70px;
+      height: 80px;
+    }
+.shield {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  font-size: initial;
+
+  /*(haut centre[v, h], droite haut [h, v] , droite bas [h, v],
+  gauche bas [h, v], gauche haut [h, v])*/
+  /*clip-path: polygon(50% 90%, 80% 65%, 80% 15%, 20% 15%, 20% 65%);*/
+  clip-path: polygon(50% 100%, 100% 65%, 100% 0%, 0% 0%, 0% 65%);
+  background: rgb(49, 120, 60);
+  background: linear-gradient(
+    90deg,
+    rgba(49, 120, 60, 1) 0%,
+    rgba(145, 210, 152, 1) 30%,
+    rgba(145, 210, 152, 1) 70%,
+    rgba(49, 120, 60, 1) 100%
+  );
 }
 ````
