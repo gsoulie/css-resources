@@ -54,6 +54,8 @@ p {
 
 ## Créer des formes avec clip-path
 
+Outil : https://bennettfeely.com/clippy/      
+
 Tutorial : https://css-tricks.com/the-shapes-of-css/
 
 Exemple de création d'un pentagone
