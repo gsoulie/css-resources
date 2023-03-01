@@ -8,6 +8,7 @@
 * [Tooltip](https://github.com/gsoulie/css-resources/blob/main/resources/tooltip.md)      
 * [Checkbox animations](https://getcssscan.com/css-checkboxes-examples)     
 * [Créer des formes avec clip-path](#créer-des-formes-avec-clip-path)       
+* [Animations](https://github.com/gsoulie/css-resources/blob/main/css-animation.md)     
 
 ## Première lettre en majuscule
 
