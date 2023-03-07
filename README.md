@@ -95,3 +95,10 @@ Exemple de création d'un pentagone
   );
 }
 ````
+
+## Changement couleur globale de tous les champs
+
+````css
+html {
+  accent-color: hsla(180, 100%, 70%, 1);
+}
