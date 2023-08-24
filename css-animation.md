@@ -6,6 +6,9 @@
 
 ## Fade-in avec from bottom
 
+<details>
+        <summary>Fade-in</summary>
+
 ````html
 <div id="logo-container">
         <img
@@ -53,3 +56,88 @@
   }
 }
 ````
+
+</details>
+
+## Ouverture modale avec translation et opacité
+
+<details>
+	<summary>Transition simple</summary>
+	
+*Modal.scss*
+````css
+.Modal {
+  position: fixed;
+  z-index: 200;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 2px #ccc;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  top: 30%;
+  left: 25%;
+  width: 50%;
+  transition: all 0.6s ease-out;	// <-- animation
+}
+.ModalOpen {
+  opacity: 1;
+  translate: 0 0;	// <-- transate Y effect
+  //transform: translateY(0);
+}
+.ModalClosed {
+  opacity: 0;
+  translate: 0 100px;	// <-- transate Y effect
+  //transform: translateY(100px);
+}
+
+````
+
+</details>
+
+<details>
+	<summary>Animations css avec @keyframes</summary>
+
+Il est possible de transformer l'exemple précédent en utilisant les ````@keyframes```` de la manière suivante 
+
+*Modal.scss*
+````css
+.ModalOpen {
+  animation: openModal 0.6s ease-out forwards;	// 'forwards' important sinon l'animation tournera en boucle
+}
+.ModalClosed {
+  animation: closeModal 0.6s ease-out forwards;
+}
+
+@keyframes openModal {
+  0% {
+    opacity: 0;
+    translate: 0 -100%;
+  }
+  50% {
+    opacity: 1;
+    translate: 0 20%;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes closeModal {
+  0% {
+    opacity: 1;
+    translate: 0 0;
+  }
+  50% {
+    opacity: 0.8;
+    translate: 0 60%;
+  }
+  100% {
+    opacity: 0;
+    translate: 0 -200%;
+  }
+}
+````
+
+</details>
