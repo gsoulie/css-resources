@@ -11,7 +11,7 @@
 * [Créer des formes avec clip-path](#créer-des-formes-avec-clip-path)       
 * [Animations](https://github.com/gsoulie/css-resources/blob/main/css-animation.md)     
 * [Css doodle](https://css-doodle.com/)
-* [Eviter le redimenssionnement d'une div de taille fixe avec application d'un padding](#eviter-le-redimenssionnement-d--une-div-de-taille-fixe-avec-application-d--un-padding)
+* [Eviter le redimenssionnement d'une div de taille fixe avec application d'un padding](#eviter-le-redimenssionnement-dune-div-de-taille-fixe-avec-application-dun-padding)
 
 ## Convention de nommage BEM
 
@@ -146,6 +146,9 @@ html {
 
 ## Eviter le redimenssionnement d'une div de taille fixe avec application d'un padding
 
+<details>
+  <summary>comprendre l'attribut box-sizing</summary>
+
 Par défaut, chaque paramètre de *box-sizing* d'élément est défini sur ````content-box````. Ce qui signifie que si vous définissez la largeur d'un élément sur **200px**, puis ajoutez un padding de **20px** aux deux extrémités horizontales, cela entraînerait une largeur totale de **240px** pour cet élément.
 
 pour résoudre ce problème, il vous suffit de mettre à jour le paramètre ````box-sizing````
@@ -159,3 +162,6 @@ pour résoudre ce problème, il vous suffit de mettre à jour le paramètre ````
 Cela indique au navigateur de prendre en compte toute bordure et tout remplissage dans les valeurs que vous spécifiez pour la largeur et la hauteur d'un élément.
 
 Ainsi, pour un élément défini sur border-box avec une largeur de 200 px et un remplissage de 20 px des deux côtés, sa largeur totale resterait toujours de 200 px (160 px comme zone de contenu et 40 px comme remplissage).
+
+</details>
+
