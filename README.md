@@ -12,6 +12,8 @@
 * [Animations](https://github.com/gsoulie/css-resources/blob/main/css-animation.md)     
 * [Css doodle](https://css-doodle.com/)
 * [Eviter le redimenssionnement d'une div de taille fixe avec application d'un padding](#eviter-le-redimenssionnement-dune-div-de-taille-fixe-avec-application-dun-padding)
+* [Désactiver le style hover sur un élément disabled](#désactiver-le-style-hover-sur-un-élément-disabled)
+* [Header qui disparaît lors du scroll](#header-qui-disparaît-lors-du-scroll)    
 
 ## Convention de nommage BEM
 
@@ -165,3 +167,130 @@ Ainsi, pour un élément défini sur border-box avec une largeur de 200 px et un
 
 </details>
 
+## Désactiver le style hover sur un élément disabled
+
+<details>
+  <summary></summary>
+
+````
+.btn-std {
+  height: 47px;
+  padding: 13px 30px;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 21px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &:disabled {
+    background-color: var(--color-disabled-button);
+    pointer-events: none;
+  }
+}
+
+.fill-dark-blue {
+  background-color: var(--color-dark-blue);
+  color: white;
+  fill: white;
+
+  &:hover:enabled {
+    background-color: rgba(#014093, 0.7);
+  }
+}
+
+<button class="btn-std fill-dark-blue">Bouton</button>
+<button class="btn-std fill-dark-blue" disabled>Bouton</button>
+````
+</details>
+
+## Header qui disparaît lors du scroll
+
+<details>
+  <summary>Exemple sous React</summary>
+
+
+````typescript
+export const RouteLayout = () => {
+  const [showHeader, setShowHeader] = useState(true);
+
+  useEffect(() => {
+    let prevScrollPos = window.pageYOffset;
+
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const shouldShowHeader =
+        currentScrollPos < prevScrollPos || currentScrollPos <= 200; // currentScrollPos === 0 ajuster la variable pour le seuil de déclenchement
+
+      setShowHeader(shouldShowHeader);
+      prevScrollPos = currentScrollPos;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <>
+      <div className={`header ${showHeader ? "" : "hidden"}`}>
+        <HeaderWrapper />
+      </div>
+	</>
+  )
+}
+````
+
+*HeaderWrapper.tsx*
+
+````typescript
+import './HeaderWrapper.scss'
+import { MainMenu } from '../mainMenu/MainMenu';
+
+export const HeaderWrapper = () => {
+
+
+  return (
+    <>      
+      <div className="header">
+        <Toolbar />
+        <Navigation handleClick={showMenu} />
+      </div>
+    </>
+  );
+}
+````
+
+*HeaderWrapper.scss*
+
+````css
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;  
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateY(0);
+  opacity: 1;
+}
+.header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+@media
+(prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+````
+</details>
