@@ -2,7 +2,8 @@
 
 # Css
 
-* [Convention BEM](#convention-de-nommage-BEM)     
+* [Convention BEM](#convention-de-nommage-BEM)
+* [Première lettre en majuscule](#première-lettre-en-majuscule)     
 * [Sticky navbar](https://github.com/gsoulie/css-resources/blob/master/css-sticky-navbar.md)     
 * [Collection de layout / pattern prêt à l'emploi](https://csslayout.io/) / https://codyhouse.co/nuggets     
 * [Css défensif](https://defensivecss.dev/)      
