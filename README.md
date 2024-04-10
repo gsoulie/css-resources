@@ -14,7 +14,8 @@
 * [Css doodle](https://css-doodle.com/)
 * [Eviter le redimenssionnement d'une div de taille fixe avec application d'un padding](#eviter-le-redimenssionnement-dune-div-de-taille-fixe-avec-application-dun-padding)
 * [Désactiver le style hover sur un élément disabled](#désactiver-le-style-hover-sur-un-élément-disabled)
-* [Header qui disparaît lors du scroll](#header-qui-disparaît-lors-du-scroll)    
+* [Header qui disparaît lors du scroll](#header-qui-disparaît-lors-du-scroll)
+* [Inifinite image shadow](https://codepen.io/t_afif/pen/XWoNdGK)     
 
 ## Convention de nommage BEM
 
