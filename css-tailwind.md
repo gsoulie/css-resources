@@ -96,7 +96,6 @@ De base, Tailwind CSS fourni une très grande liste de classes css (voir documen
 
 *tailwind.config.js*
 ````javascript
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // ...
@@ -147,6 +146,149 @@ module.exports = {
 ````html
 <div className="p-xs bg-green100 m-md rounded-md text-lg">Box</div>
 ````
+
+*Angular*
+````html
+<div class="p-xs bg-green100 m-md rounded-md text-lg">Box</div>
+````
+
+## Création de classes spécifiques
+
+Dans certain cas, il se peut qu'une combinaison de styles soit dupliquée dans plusieurs composants / pages de l'application.
+
+Dans **l'idéal**, si une combinaison de styles doit être réutilisée (comme on le fait traditionnellement en créant une classe css que l'on va réutiliser ailleurs), il est **conseillé de créer des composants génériques** qui vont implémenter les styles comme vu précédemment.
+
+Il est toutefois possible de créer des classes css s'appuyant sur les classes css de tailwind via l'utilisation de la directive  ````@apply````, mais celà n'est pas forcément conseillé.
+
+> Commencer à utiliser ````@apply```` pour tout, revient finalement à écrire du CSS et donc perdre tous les avantages de flux de travail et de maintenabilité que Tailwind nous offre
+
+* Devoir trouver un nouveau nom de classe css qui ne soit pas déjà utilisé
+* Devoir naviguer dans plusieurs fichiers css pour modifier des styles
+* La modification d'un style ne va-t'il pas avoir un effet de bord négatif ailleurs dans l'application
+
+> ````@apply```` doit donc être utilisé pour des éléments très petits et hautement réutilisables comme les boutons et les contrôles de formulaire — et même dans ce cas seulement si vous n'utilisez pas un framework comme React où un composant serait un meilleur choix.
+
+### @apply
+
+**1** - Créer un répertoire ````.vscode```` à la racine du projet      
+**2** - Dans le répertoire ````.vscode````, créer un fichier **settings.json** contenant le code suivant permettant de désactiver le warning *unknownAtRules*
+
+<details>
+  <summary>settings.json</summary>
+
+````json
+{
+  "scss.lint.unknownAtRules": "ignore"
+}
+````
+</details>
+
+**3** -  Dans le répertoire ````.vscode````, créer un fichier **tailwind.json**
+
+<details>
+  <summary>tailwind.json</summary>
+
+````json
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@tailwind",
+      "description": "Use the `@tailwind` directive to insert Tailwind's `base`, `components`, `utilities` and `screens` styles into your CSS.",
+      "references": [
+        {
+          "name": "Tailwind Documentation",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#tailwind"
+        }
+      ]
+    },
+    {
+      "name": "@apply",
+      "description": "Use the `@apply` directive to inline any existing utility classes into your own custom CSS. This is useful when you find a common utility pattern in your HTML that you’d like to extract to a new component.",
+      "references": [
+        {
+          "name": "Tailwind Documentation",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#apply"
+        }
+      ]
+    },
+    {
+      "name": "@responsive",
+      "description": "You can generate responsive variants of your own classes by wrapping their definitions in the `@responsive` directive:\n```css\n@responsive {\n  .alert {\n    background-color: #E53E3E;\n  }\n}\n```\n",
+      "references": [
+        {
+          "name": "Tailwind Documentation",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#responsive"
+        }
+      ]
+    },
+    {
+      "name": "@screen",
+      "description": "The `@screen` directive allows you to create media queries that reference your breakpoints by **name** instead of duplicating their values in your own CSS:\n```css\n@screen sm {\n  /* ... */\n}\n```\n…gets transformed into this:\n```css\n@media (min-width: 640px) {\n  /* ... */\n}\n```\n",
+      "references": [
+        {
+          "name": "Tailwind Documentation",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#screen"
+        }
+      ]
+    },
+    {
+      "name": "@variants",
+      "description": "Generate `hover`, `focus`, `active` and other **variants** of your own utilities by wrapping their definitions in the `@variants` directive:\n```css\n@variants hover, focus {\n   .btn-brand {\n    background-color: #3182CE;\n  }\n}\n```\n",
+      "references": [
+        {
+          "name": "Tailwind Documentation",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#variants"
+        }
+      ]
+    }
+  ]
+}
+````  
+</details>
+
+**4** - Déclaration de la classe avec ````@apply````
+
+<details>
+  <summary>global.scss / styles.scss</summary>
+
+````scss
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+}
+
+@layer utilities {
+  .filter-none {
+    filter: none;
+  }
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
+}
+````
+
+Utilisation
+
+````html
+<button class="btn-primary">Hello</button>
+````
+  
+</details>
 
 *Angular*
 ````html
