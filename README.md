@@ -2,6 +2,7 @@
 
 # Css
 
+* [Tailwind CSS - NextJS / Angular](https://github.com/gsoulie/css-resources/blob/main/css-tailwind.md)     
 * [Convention BEM](#convention-de-nommage-BEM)
 * [Première lettre en majuscule](#première-lettre-en-majuscule)     
 * [Sticky navbar](https://github.com/gsoulie/css-resources/blob/master/css-sticky-navbar.md)     
