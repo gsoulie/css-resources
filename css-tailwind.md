@@ -1,6 +1,6 @@
 [< Back to main Menu](https://github.com/gsoulie/css-resources/blob/master/index.md)    
 
-# Présentation 
+## Présentation 
 
 Tailwind CSS est un framework CSS utilitaire conçu pour rendre le processus de développement de sites web et d'applications web plus rapide et plus efficace. Contrairement aux frameworks traditionnels qui fournissent des composants préconstruits (comme Bootstrap ou Foundation), Tailwind CSS adopte une approche différente en offrant une série de classes utilitaires de bas niveau. Ces classes permettent aux développeurs de construire des interfaces utilisateur directement dans leur HTML, sans avoir à écrire de CSS personnalisé.
 
@@ -22,7 +22,8 @@ Tailwind CSS est un framework CSS utilitaire conçu pour rendre le processus de 
 
 
 Documentation **Next** : [https://tailwindcss.com/docs/guides/nextjs](https://tailwindcss.com/docs/guides/nextjs)    
-Documentation **Angular** : [https://tailwindcss.com/docs/guides/angular](https://tailwindcss.com/docs/guides/angular)
+Documentation **Angular** : [https://tailwindcss.com/docs/guides/angular](https://tailwindcss.com/docs/guides/angular)    
+Bibliothèque d'éléments : [https://tailwindui.com/components#product-application-ui](https://tailwindui.com/components#product-application-ui)    
 
 *Installation dans un projet Angular / Next / React*
 ```
@@ -285,7 +286,7 @@ Il est toutefois possible de créer des classes css s'appuyant sur les classes c
 Utilisation
 
 ````html
-<button class="btn-primary">Hello</button>
+<button class="btn-blue">Hello</button>
 ````
   
 </details>
