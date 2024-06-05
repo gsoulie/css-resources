@@ -1,0 +1,45 @@
+@import "../variables.css";
+
+/*
+  Button
+*/
+.button {
+  font-family: Inter, sans-serif;
+  @apply border-none rounded-none;
+}
+.button:hover {
+  @apply hover:cursor-pointer;
+}
+
+/*
+  Variant
+*/
+.button--primary {
+  @apply bg-surface-primary-default text-content-primary-default;
+}
+.button--primary:hover {
+  @apply bg-surface-primary-hover text-content-primary-hover;
+}
+.button--primary:disabled {
+  @apply bg-surface-primary-disabled text-content-primary-disabled;
+}
+
+.button--secondary {
+  @apply bg-surface-secondary-default text-content-secondary-default;
+}
+.button--secondary:hover {
+  @apply bg-surface-secondary-hover text-content-secondary-hover;
+}
+.button--secondary:disabled {
+  @apply bg-surface-secondary-disabled text-content-secondary-disabled;
+}
+
+/*
+  Size
+*/
+.button--sm {
+  @apply text-sm px-4 py-3;
+}
+.button--lg {
+  @apply text-lg px-5 py-4;
+}
