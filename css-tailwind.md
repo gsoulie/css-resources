@@ -22,6 +22,7 @@ Tailwind CSS est un framework CSS utilitaire conçu pour rendre le processus de 
 
 ## Installation et configuration
 
+Exemple de layout table : [https://flowbite.com/docs/components/tables/](https://flowbite.com/docs/components/tables/)     
 
 Documentation **Next** : [https://tailwindcss.com/docs/guides/nextjs](https://tailwindcss.com/docs/guides/nextjs)    
 Documentation **Angular** : [https://tailwindcss.com/docs/guides/angular](https://tailwindcss.com/docs/guides/angular)    
