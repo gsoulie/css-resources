@@ -16,7 +16,8 @@
 * [Eviter le redimenssionnement d'une div de taille fixe avec application d'un padding](#eviter-le-redimenssionnement-dune-div-de-taille-fixe-avec-application-dun-padding)
 * [Désactiver le style hover sur un élément disabled](#désactiver-le-style-hover-sur-un-élément-disabled)
 * [Header qui disparaît lors du scroll](#header-qui-disparaît-lors-du-scroll)
-* [Inifinite image shadow](https://codepen.io/t_afif/pen/XWoNdGK)     
+* [Inifinite image shadow](https://codepen.io/t_afif/pen/XWoNdGK)
+* [Gérer les états d'un bouton avec color-mix](#gérer-les-états-d-un-bouton-avec-color-mix)     
 
 ## Convention de nommage BEM
 
@@ -296,4 +297,38 @@ export const HeaderWrapper = () => {
   }
 }
 ````
+</details>
+
+## Gérer les états d'un bouton avec color mix
+
+Css introduit la fonctionnalité *mix* qui permet de fusionner des couleurs, ceci peut-être utiles pour faciliter la gestion des styles dans les différents états (hover, active etc...)
+
+<details>
+	<summary>Implémentation color mix</summary>
+
+````css
+:root {
+  --primary: #126df7;
+}
+
+button {
+  transition: all .3s;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+
+  color: var(--primary);
+  background: color-mix(in lch, var(--primary) var(--mix, 15%), transparent);
+  
+  &:hover {
+    --mix: 25%;
+  }
+  
+  &:active {
+    --mix: 35%;
+  }
+}
+````
+ 
 </details>
