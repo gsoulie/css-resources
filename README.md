@@ -17,7 +17,8 @@
 * [Désactiver le style hover sur un élément disabled](#désactiver-le-style-hover-sur-un-élément-disabled)
 * [Header qui disparaît lors du scroll](#header-qui-disparaît-lors-du-scroll)
 * [Inifinite image shadow](https://codepen.io/t_afif/pen/XWoNdGK)
-* [Gérer les états d'un bouton avec color-mix](#gérer-les-états-d-un-bouton-avec-color-mix)     
+* [Gérer les états d'un bouton avec color-mix](#gérer-les-états-d-un-bouton-avec-color-mix)
+* [griser une image ou un logo](#griser-une-image-ou-un-logo)       
 
 ## Convention de nommage BEM
 
@@ -328,6 +329,20 @@ button {
   &:active {
     --mix: 35%;
   }
+}
+````
+ 
+</details>
+
+## griser une image ou un logo
+
+<details>
+	<summary></summary>
+
+
+````css
+element.style {
+	filter: saturate(200%) grayscale(1);
 }
 ````
  
