@@ -18,7 +18,8 @@
 * [Header qui disparaît lors du scroll](#header-qui-disparaît-lors-du-scroll)
 * [Inifinite image shadow](https://codepen.io/t_afif/pen/XWoNdGK)
 * [Gérer les états d'un bouton avec color-mix](#gérer-les-états-d-un-bouton-avec-color-mix)
-* [griser une image ou un logo](#griser-une-image-ou-un-logo)       
+* [griser une image ou un logo](#griser-une-image-ou-un-logo)
+* [Ajouter un effet de blur](#ajouter-un-effet-de-blur)     
 
 ## Convention de nommage BEM
 
@@ -347,3 +348,24 @@ element.style {
 ````
  
 </details>
+
+## Ajouter un effet de blur
+
+<details>
+
+
+````css
+.container:after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	position: absolute;
+	// ---> blur
+	background: inherit;
+	filter: blur(20px);
+	z-index: -1;
+}
+````
+</details>
+
