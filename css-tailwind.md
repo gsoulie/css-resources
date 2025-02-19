@@ -1,5 +1,6 @@
 [< Back to main Menu](https://github.com/gsoulie/css-resources/blob/master/index.md)    
 
+* [Tailwind css color generator](https://uicolors.app/create)    
 * [Composant Bouton React générique avec styles tailwind](https://github.com/gsoulie/css-resources/tree/main/css-react-compo)     
 
 ## Présentation 
