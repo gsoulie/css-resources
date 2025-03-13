@@ -308,10 +308,9 @@ Utilisation
 <details>
   <summary></summary>
 
-
-https://evilmartians.com/chronicles/5-best-practices-for-preventing-chaos-in-tailwind-css
-https://github.com/tailwindlabs/prettier-plugin-tailwindcss
-https://www.uxpin.com/studio/blog/tailwind-best-practices/
+- https://evilmartians.com/chronicles/5-best-practices-for-preventing-chaos-in-tailwind-css
+- https://github.com/tailwindlabs/prettier-plugin-tailwindcss
+- https://www.uxpin.com/studio/blog/tailwind-best-practices/
 
 * Utiliser le fichier tailwind.config.js pour définir les tokens (variables) définis par les graphistes 
 
