@@ -2,7 +2,8 @@
 
 * [Tailwind css color generator](https://uicolors.app/create)    
 * [Composant Bouton React générique avec styles tailwind](https://github.com/gsoulie/css-resources/tree/main/css-react-compo)     
-
+* [Bonnes pratiques (WIP)](#bonnes-pratiques)
+  
 ## Présentation 
 
 Tailwind CSS est un framework CSS utilitaire conçu pour rendre le processus de développement de sites web et d'applications web plus rapide et plus efficace. Contrairement aux frameworks traditionnels qui fournissent des composants préconstruits (comme Bootstrap ou Foundation), Tailwind CSS adopte une approche différente en offrant une série de classes utilitaires de bas niveau. Ces classes permettent aux développeurs de construire des interfaces utilisateur directement dans leur HTML, sans avoir à écrire de CSS personnalisé.
@@ -301,3 +302,80 @@ Utilisation
 ````html
 <div class="p-xs bg-green100 m-md rounded-md text-lg">Box</div>
 ````
+
+## Bonnes pratiques
+
+<details>
+  <summary></summary>
+
+
+https://evilmartians.com/chronicles/5-best-practices-for-preventing-chaos-in-tailwind-css
+https://github.com/tailwindlabs/prettier-plugin-tailwindcss
+https://www.uxpin.com/studio/blog/tailwind-best-practices/
+
+* Utiliser le fichier tailwind.config.js pour définir les tokens (variables) définis par les graphistes 
+
+````typescript
+module.exports = {
+  theme: {
+    colors: {
+      primary: 'oklch(75% 0.18 154)',
+      secondary: 'oklch(40% 0.23 283)',
+      error: 'oklch(54% 0.22 29)'
+    },
+    spacing: {
+      'sm': '4px',
+      'md': '8px',
+      'lg': '12px'
+    },
+    screens: {
+      'sm': '640px',
+      'md': '768px'
+    },
+  },
+  //...
+}
+
+<button class="bg-primary">Standard button</button>
+<div class="bg-primary">First tab</div>
+````
+
+* utiliser purge CSS
+
+Leverage Tailwind’s PurgeCSS
+One of the most common concerns with Tailwind is the potential for bloat due to the large number of utility classes. However, by configuring PurgeCSS, you can automatically remove unused CSS, reducing the final file size and improving performance. Tailwind makes it easy to integrate PurgeCSS into your build process:
+
+````typescript
+module.exports = {
+  purge: ['./src/**/*.html', './src/**/*.js'],
+
+  // other configurations...
+};
+````
+
+By specifying the files where your classes are used, PurgeCSS will strip out any unused styles, ensuring your CSS is as lean as possible.* éviter de définir les valeurs à la volée : ````p-[123px] mb-[11px] gap-[3px] bg-[#eeccff]````
+
+* vision mobile first
+
+* avoir une approche composant : créer des composants génériques définissant les classes tailwindcss afin de centraliser les styles
+ ex :
+
+````
+	<!-- Reusable button with a long list of Tailwind classes: -->
+	<button class="bg-yellow-700 border-2 font-semibold border border-gray-300 text-green p-4 rounded">
+	Custom Button
+	</button>
+
+	<!-- Instead of repeating this structure over and over again, create a reusable component: -->
+	<CustomButton>Custom Button</CustomButton>
+````
+	
+* éviter autant que possible l'utilisation de @apply (augmente la taille du bundle css). Cela retire l'intérêt de tailwind (qui évite le casse tête des classes css).
+réserver cet usage pour des cas très ponctuels ou spécifiques
+
+* Essayer d'adopter un ordonnancement logique dans le listing des classes. Ou du moins grouper à la suite
+toutes les classes concernant le même domaine (font spacing display...) Keep class ordering
+	- le plugin prettier https://github.com/tailwindlabs/prettier-plugin-tailwindcss permet de gérer ça automatiquement
+
+  
+</details>
