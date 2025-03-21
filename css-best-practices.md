@@ -1,5 +1,7 @@
 [< Back to main Menu](https://github.com/gsoulie/css-resources/blob/master/index.md)    
 
+* [Sélection des sous-classes](#sélection-des-sous-classes)    
+
 # Organisation des feuilles de style css
 
 Voici une bonne pratique d'organisation des fichiers de style css. L'idée est de séparer les styles par domaines et de les centraliser dans un fichier *settings.scss* qui aura pour rôle de créer des variables css permettant d'exposer les différents styles dans toute l'application.
@@ -81,5 +83,37 @@ Dans les fichiers SCSS de vos composants, vous utilisez les variables CSS :
 .another-element {
     background-color: var(--black);
     color: var(--danger);
+}
+````
+
+## Sélection des sous-classes
+
+Bonne pratiques pour sélectionner les classes css 
+
+*html*
+
+````html
+<div class="my-loader">
+  <div class="my-loader__wrapper">
+    <div class="my-loader__logo">
+    ...
+    <div class="my-loader__title">
+...
+````
+
+````css
+.my-loader {
+  /* Styles pour .my-loader */
+  &__wrapper {
+    /* Styles pour .my-loader__wrapper */
+  }
+
+  &__logo {
+    /* Styles pour .my-loader__logo */
+  }
+
+  &__title {
+    /* Styles pour .my-loader__title */
+  }
 }
 ````
