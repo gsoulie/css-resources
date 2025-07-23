@@ -32,13 +32,60 @@ Documentation **Next** : [https://tailwindcss.com/docs/guides/nextjs](https://ta
 Documentation **Angular** : [https://tailwindcss.com/docs/guides/angular](https://tailwindcss.com/docs/guides/angular)    
 Bibliothèque d'éléments : [https://tailwindui.com/components#product-application-ui](https://tailwindui.com/components#product-application-ui)    
 
+
+## Installation et configuration
+
+Documentation **Next** : [https://tailwindcss.com/docs/guides/nextjs](https://tailwindcss.com/docs/guides/nextjs)    
+Documentation **Angular** : [https://tailwindcss.com/docs/guides/angular](https://tailwindcss.com/docs/guides/angular)    
+Bibliothèque d'éléments : [https://tailwindui.com/components#product-application-ui](https://tailwindui.com/components#product-application-ui)    
+
+### Angular
+*Installation Angular*
+````
+npm install tailwindcss @tailwindcss/postcss postcss --force
+````
+*Créer un fichier **.postcssrc.json** à la racine du projet*
+
+````javascript
+{
+  "plugins": {
+    "@tailwindcss/postcss": {}
+  }
+}
+````
+
+*Importer Tailwind dans la feuille de style globale styles.css*
+
+````css
+@import "tailwindcss";
+````
+
+### React / Next
 *Installation dans un projet Angular / Next / React*
 ```
+// v4
+npm install tailwindcss @tailwindcss/postcss postcss
+
+// v3
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-_(**NextJS**) tailwind.config.js_
+*Créer un fichier **postcss.config.mjs** (v4)*
+
+````javascript
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+export default config;
+````
+
+_(**NextJS**) tailwind.config.js (tailwind v3)_
+
+<details>
+  <summary>Code</summary>
 
 ```
 module.exports = {
@@ -55,9 +102,13 @@ module.exports = {
   },
   plugins: [],
 }
-```
+```  
+</details>
 
-_(**Angular**) tailwind.config.js_
+
+_(**Angular**) tailwind.config.js (tailwind v3)_
+<details>
+  <summary>Code</summary>
 
 ```
 module.exports = {
@@ -69,15 +120,12 @@ module.exports = {
   },
   plugins: [],
 }
-```
+```  
+</details>
 
 _global.scss (**NextJS**) ou styles.scss (**Angular**)_
 
 ```
-// v4x
-@import "tailwindcss";
-
-// v3x
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -104,7 +152,7 @@ Son utilisation est très simple, il suffit de renseigner les classes css fourni
 
 De base, Tailwind CSS fourni une très grande liste de classes css (voir documentation), cependant, il est possible de toutes les surcharger ou d'en créer de nouvelles pour les besoins spécifiques d'un projet.
 
-### Surcharge simplifiée depuis la v4
+### Personnalisation tailwind v4
 
 Tout se fait depuis le fichier *styles.css* ou *global.css*
 
@@ -175,7 +223,7 @@ Tout se fait depuis le fichier *styles.css* ou *global.css*
 </div>
 ````
 
-#### Exemple de surcharge
+### Personnalisation tailwind v3
 
 *tailwind.config.js*
 ````javascript
