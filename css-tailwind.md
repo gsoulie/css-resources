@@ -75,9 +75,7 @@ _global.scss (**NextJS**) ou styles.scss (**Angular**)_
 
 ```
 // v4x
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 // v3x
 @import "tailwindcss/base";
@@ -105,6 +103,77 @@ Son utilisation est très simple, il suffit de renseigner les classes css fourni
 ## Personnalisation des styles
 
 De base, Tailwind CSS fourni une très grande liste de classes css (voir documentation), cependant, il est possible de toutes les surcharger ou d'en créer de nouvelles pour les besoins spécifiques d'un projet.
+
+### Surcharge simplifiée depuis la v4
+
+Tout se fait depuis le fichier *styles.css* ou *global.css*
+
+````css
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+    --color-blue100: #9cc1ff;
+    --color-blue200: #1D6DF5;   
+    --color-blue250: #195DD0;
+    --color-blue300: #014095;
+    --color-grey50: #efefef;
+    --color-grey100: #ececf5;
+    --color-grey150: #c2c3c7;
+    --color-grey200: #74758c;
+    --color-grey300: #353643;
+    --color-grey400: #2e2c3633;
+    --color-red100: #c65146;
+    --color-red600: #C65146;
+    --color-red700: #A43B31;
+    --color-green50: #F4F9F5;
+    --color-green100: #4f8258;
+    --color-customBro: #014095;
+
+    /* spacings */
+    --spacing-3xs: 5px;
+    --spacing-2xs: 8px;
+    --spacing-xs: 10px;
+    --spacing-sm: 15px;
+    --spacing-md: 20px;
+    --spacing-lg: 25px;
+    --spacing-xl: 30px;
+    --spacing-xxl: 60px;
+    --spacing-3xl: 150px;
+
+    /* border radius */
+    --radius-sm: 3px;
+    --radius-md: 6px;
+    --radius-lg: 9px;
+    --radius-xl: 99px;
+
+    /* font size */
+    --font-size-3xs: 0.5rem;
+    --font-size-xxs: 0.75rem;
+    --font-size-xs: 0.8125rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.375rem;
+    --font-size-xxl: 1.625rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.5rem;
+}   
+````
+
+> Consulter la liste des mots clé préfixe des variables : [https://tailwindcss.com/docs/theme#theme-variable-namespaces](https://tailwindcss.com/docs/theme#theme-variable-namespaces)
+
+*Utilisation*
+
+````html
+<h1 class="text-3xl font-bold underline text-green100">Hello World</h1>
+<h1 class="text-3xl font-bold underline text-blue300">Hello World</h1>
+
+<div>
+    <div class="bg-green100 w-50 h-50 m-3xl rounded-sm"></div>
+    <div class="bg-blue200 w-50 h-50 rounded-xl"></div>
+</div>
+````
 
 #### Exemple de surcharge
 
