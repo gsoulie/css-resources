@@ -74,6 +74,12 @@ module.exports = {
 _global.scss (**NextJS**) ou styles.scss (**Angular**)_
 
 ```
+// v4x
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// v3x
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
