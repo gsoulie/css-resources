@@ -3,6 +3,9 @@
 * [Tailwind css color generator](https://uicolors.app/create)    
 * [Composant Bouton React générique avec styles tailwind](https://github.com/gsoulie/css-resources/tree/main/css-react-compo)     
 * [Bonnes pratiques (WIP)](#bonnes-pratiques)
+
+## Bibliothèques de composant basées sur Tailwind	
+* [flowbite](https://flowbite.com/docs/components/badge/)     
   
 ## Présentation 
 
