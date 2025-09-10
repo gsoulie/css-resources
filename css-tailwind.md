@@ -5,7 +5,8 @@
 * [Bonnes pratiques (WIP)](#bonnes-pratiques)
 
 ## Bibliothèques de composant basées sur Tailwind	
-* [flowbite](https://flowbite.com/docs/components/badge/)     
+* [flowbite](https://flowbite.com/docs/components/badge/)
+* [preline](https://preline.co/docs/modal.html)     
   
 ## Présentation 
 
