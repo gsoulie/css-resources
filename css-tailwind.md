@@ -3,6 +3,7 @@
 * [Tailwind css color generator](https://uicolors.app/create)    
 * [Composant Bouton React générique avec styles tailwind](https://github.com/gsoulie/css-resources/tree/main/css-react-compo)     
 * [Bonnes pratiques (WIP)](#bonnes-pratiques)
+* [Gestion dark et light theme](#gestion-dark-et-light-theme)     
 
 ## Bibliothèques de composant basées sur Tailwind	
 * [flowbite](https://flowbite.com/docs/components/badge/)
@@ -505,3 +506,135 @@ toutes les classes concernant le même domaine (font spacing display...) Keep cl
 
   
 </details>
+
+## Gestion dark et light theme
+
+Pour gérer facilement un dark / light theme, il est nécessaire de suivre les étapes suivantes :
+
+**1 - configuration du tailwind.config.js**
+
+````typescript
+module.exports = {
+    content: ["./src/**/*.{html,ts}"],
+    theme: {
+        extend: {
+            
+        },
+    },
+    plugins: [],
+    darkMode: 'class',	// <--- rajouter cette propriété
+};
+````
+
+**2 - configuration styles.css**
+
+````css
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));	// <--- rajouter cet import, ce n'est pas grave si VSCode indique un warning dessus (voir extension tailwind css intellisence)
+````
+
+**3 - création d'un service theme.ts**
+
+<detail>
+	<summary>code du service</summary>
+	
+````typescript
+import { Injectable, signal } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ThemeService {
+  private readonly darkMode = signal<boolean>(true);
+
+  isDarkMode() {
+    return this.darkMode();
+  }
+
+  toggleTheme() {
+    const isDark = !this.darkMode();
+    this.darkMode.set(isDark);
+    
+    const html = document.documentElement;
+    if (isDark) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+  }
+
+  constructor() {
+    // Initialize theme based on system preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.darkMode.set(prefersDark);
+  }
+}
+````
+</details>
+
+**4 - création d'un composant theme-toggle button**
+
+<details>
+	<summary>code du composant Angular</summary>
+
+````typescript
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../../services/theme';
+
+
+@Component({
+  selector: 'app-theme-toggle',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <button
+      (click)="themeService.toggleTheme()"
+      class="cursor-pointer rounded-lg p-2 bg-gray-100 dark:bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700"
+      aria-label="Toggle dark mode"
+    >
+      <!-- Sun icon -->
+      @if(themeService.isDarkMode()) {
+
+          <svg
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+            />
+          </svg>
+      } @else {
+      <!-- Moon icon -->
+      <svg
+        class="w-5 h-5"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+      </svg>
+    }
+    </button>
+  `
+})
+export class ThemeToggle {
+  themeService = inject(ThemeService);
+}
+````
+ 
+</details>
+
+**5 - Adapter tous les composants**
+
+Il suffit ensuite dans tous les composants, de spécifier les classes css de base et de les étendre avec leur version ````dark:````
+
+*user.html*
+
+````html
+<div class="bg-slate-200 dark:bg-slate-900 text-black dark:text-slate-200 hover:bg-slate-400 dark:hover:bg-slate-100">
+</div>
+````
