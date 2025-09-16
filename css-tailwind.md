@@ -575,6 +575,8 @@ export class ThemeService {
 
 **4 - création d'un composant theme-toggle button**
 
+Ajouter ce composant dans le header de l'application ou dans un menu quelconque
+
 <details>
 	<summary>code du composant Angular</summary>
 
