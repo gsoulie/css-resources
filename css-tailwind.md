@@ -536,7 +536,7 @@ module.exports = {
 
 **3 - création d'un service theme.ts**
 
-<detail>
+<details>
 	<summary>code du service</summary>
 	
 ````typescript
