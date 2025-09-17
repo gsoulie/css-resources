@@ -6,7 +6,11 @@
 * [Gestion dark et light theme](#gestion-dark-et-light-theme)     
 
 ## Bibliothèques de composant basées sur Tailwind	
-* [flowbite](https://flowbite.com/docs/components/badge/)
+* [Flowbite](https://flowbite.com/docs/components/accordion/)
+* [Merakiui](https://merakiui.com/components)
+* [Tailblocks](https://tailblocks.cc/)
+* [HyperUI](https://www.hyperui.dev/)    
+* [Daisy UI](https://daisyui.com/docs/intro/)
 * [preline](https://preline.co/docs/modal.html)     
   
 ## Présentation 
