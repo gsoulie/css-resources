@@ -6,6 +6,7 @@
 * [Gestion dark et light theme](#gestion-dark-et-light-theme)     
 
 ## Bibliothèques de composant basées sur Tailwind	
+* [Définir le border par défaut](#définir-le-border-par-défaut)     
 * [Flowbite](https://flowbite.com/docs/components/accordion/)
 * [Merakiui](https://merakiui.com/components)
 * [Tailblocks](https://tailblocks.cc/)
@@ -36,13 +37,6 @@ Tailwind CSS est un framework CSS utilitaire conçu pour rendre le processus de 
 Exemple de layout table : [https://flowbite.com/docs/components/tables/](https://flowbite.com/docs/components/tables/)     
 Header de table : [https://flowbite.com/blocks/application/table-headers/](https://flowbite.com/blocks/application/table-headers/)    
 Footer de table : [https://flowbite.com/blocks/application/table-footers/](https://flowbite.com/blocks/application/table-footers/)    
-
-Documentation **Next** : [https://tailwindcss.com/docs/guides/nextjs](https://tailwindcss.com/docs/guides/nextjs)    
-Documentation **Angular** : [https://tailwindcss.com/docs/guides/angular](https://tailwindcss.com/docs/guides/angular)    
-Bibliothèque d'éléments : [https://tailwindui.com/components#product-application-ui](https://tailwindui.com/components#product-application-ui)    
-
-
-## Installation et configuration
 
 Documentation **Next** : [https://tailwindcss.com/docs/guides/nextjs](https://tailwindcss.com/docs/guides/nextjs)    
 Documentation **Angular** : [https://tailwindcss.com/docs/guides/angular](https://tailwindcss.com/docs/guides/angular)    
@@ -156,6 +150,16 @@ Son utilisation est très simple, il suffit de renseigner les classes css fourni
 * ````items-center```` : align-items: center;
 * ````w-48```` : width de 192px
 
+## Définir le border par défaut
+
+*app.css*
+````css
+@theme {
+	--default-border-width: 0.5px
+}
+
+<div class="border" /> <!-- 0.5px -->
+````
 
 ## Personnalisation des styles
 
