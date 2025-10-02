@@ -167,13 +167,18 @@ De base, Tailwind CSS fourni une très grande liste de classes css (voir documen
 
 ### Personnalisation tailwind v4
 
-Tout se fait depuis le fichier *styles.css* ou *global.css*
+Depuis la v4, la surcharge des styles est simplifiée, tout se passe dans la feuille de style globale (*styles.css* ou *global.css*)
+
+> **ATTENTION** : Tailwind se base sur des mots clés pour identifier les variables. Il faut donc utiliser les bons préfixes pour qu'ils soient reconnus.
+
+<details>
+  <summary>styles.css</summary>  
 
 ````css
-/* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 
 @theme {
+    /** Utiliser le préfixe --color-<nom> pour les couleurs **/
     --color-blue100: #9cc1ff;
     --color-blue200: #1D6DF5;   
     --color-blue250: #195DD0;
@@ -191,7 +196,7 @@ Tout se fait depuis le fichier *styles.css* ou *global.css*
     --color-green100: #4f8258;
     --color-customBro: #014095;
 
-    /* spacings */
+    /** Utiliser le préfixe --spacing-<nom> pour les marges **/
     --spacing-3xs: 5px;
     --spacing-2xs: 8px;
     --spacing-xs: 10px;
@@ -202,37 +207,37 @@ Tout se fait depuis le fichier *styles.css* ou *global.css*
     --spacing-xxl: 60px;
     --spacing-3xl: 150px;
 
-    /* border radius */
+    /** Utiliser le préfixe --radius-<nom> **/
     --radius-sm: 3px;
     --radius-md: 6px;
     --radius-lg: 9px;
     --radius-xl: 99px;
 
-    /* font size */
-    --font-size-3xs: 0.5rem;
-    --font-size-xxs: 0.75rem;
-    --font-size-xs: 0.8125rem;
-    --font-size-sm: 0.875rem;
-    --font-size-md: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.375rem;
-    --font-size-xxl: 1.625rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.5rem;
+    /** Utiliser le préfixe --text-<nom> pour les tailles de font **/
+    --text-size-3xs: 0.5rem;
+    --text-size-xxs: 0.75rem;
+    --text-size-xs: 0.8125rem;
+    --text-size-sm: 0.875rem;
+    --text-size-md: 1rem;
+    --text-size-lg: 1.125rem;
+    --text-size-xl: 1.375rem;
+    --text-size-xxl: 1.625rem;
+    --text-size-3xl: 1.875rem;
+    --text-size-4xl: 2.5rem;
 }   
 ````
 
-> Consulter la liste des mots clé préfixe des variables : [https://tailwindcss.com/docs/theme#theme-variable-namespaces](https://tailwindcss.com/docs/theme#theme-variable-namespaces)
+> Consulter la **liste des mots clé préfixe des variables** : https://tailwindcss.com/docs/theme#theme-variable-namespaces
 
-*Utilisation*
+*Utilisation des styles customs*
 
 ````html
-<h1 class="text-3xl font-bold underline text-green100">Hello World</h1>
-<h1 class="text-3xl font-bold underline text-blue300">Hello World</h1>
+<h1 class="text-size3xl p-lg font-bold underline text-green100">Hello World</h1>
+<h1 class="text-size-xl p-3xl font-bold underline text-blue300">Hello World</h1>
 
 <div>
-    <div class="bg-green100 w-50 h-50 m-3xl rounded-sm"></div>
-    <div class="bg-blue200 w-50 h-50 rounded-xl"></div>
+    <div class="bg-green100 rounded-xl w-50 h-50 m-3xl rounded-sm"></div>
+    <div class="bg-blue200 mb-sm text-size-xl w-50 h-50 rounded-xl"></div>
 </div>
 ````
 
