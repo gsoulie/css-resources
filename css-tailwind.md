@@ -169,7 +169,7 @@ De base, Tailwind CSS fourni une très grande liste de classes css (voir documen
 
 Depuis la v4, la surcharge des styles est simplifiée, tout se passe dans la feuille de style globale (*styles.css* ou *global.css*)
 
-> **ATTENTION** : Tailwind se base sur des mots clés pour identifier les variables. Il faut donc utiliser les bons préfixes pour qu'ils soient reconnus.
+> **ATTENTION** : Tailwind se base sur des mots clés pour identifier les variables. Il faut donc utiliser les bons préfixes pour qu'ils soient reconnus. Si le nom d'une variable est déjà utilisée par tailwind, elle sera alors surchargée. Si elle n'existe pas, tailwind crééra une nouvelle variable
 
 <details>
   <summary>styles.css</summary>  
@@ -224,6 +224,12 @@ Depuis la v4, la surcharge des styles est simplifiée, tout se passe dans la feu
     --text-size-xxl: 1.625rem;
     --text-size-3xl: 1.875rem;
     --text-size-4xl: 2.5rem;
+
+    /** Utiliser le préfixe --breakpoint-<nom> pour les breakpoints responsives **/
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 976px;
+    
 }   
 ````
 
