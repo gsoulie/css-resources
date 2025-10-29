@@ -22,7 +22,8 @@
 * [griser une image ou un logo](#griser-une-image-ou-un-logo)
 * [Ajouter un effet de blur](#ajouter-un-effet-de-blur)
 * [Instruction if et attr](https://github.com/gsoulie/css-resources/blob/main/css-if-attr.md)
-* [Migration Sass](https://github.com/gsoulie/css-resources/blob/main/css-migration-sass.md)    
+* [Migration Sass](https://github.com/gsoulie/css-resources/blob/main/css-migration-sass.md)
+* [Responsive](https://github.com/gsoulie/css-resources/blob/main/css-responsive.md)     
 
 ![css-cheat-sheet](https://github.com/user-attachments/assets/f6af7851-27df-4e17-aedb-05ef45e41c16)
 
