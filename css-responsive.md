@@ -82,3 +82,54 @@ Pour une couverture totale, il est même possible de fournir les deux unités. L
 	height: 100dvh;
 }
 ````
+
+
+
+## Flexbox vs Grid
+
+https://www.youtube.com/watch?v=aEj6k-gi9-s
+
+> **Flexbox** implique de modifier les éléments enfants pour ajuster le layout
+
+> **Grid** se focalise sur la div parent pour  ajuster le layout
+
+Dans quel cas utiliser un layout de type Grid ?
+
+* si le layout d'un composant doit toujours être vertical alors utiliser **Grid** car il utilise l'affichage colonne par défaut
+* layouts réguliers et homogènes (plus rigides) : affichage en colonne ou ligne, menu, grille produit parfaite etc...
+* besoin d'avoir des éléments enfants qui ont tous la même taille
+* pour les layout *complexes* (structure globale d'une application), il est préférable d'utiliser Grid car Flexbox ne peut pas être à la fois en mode colonnes et en mode ligne. Voir **grid-template-areas**
+
+Dans quel cas utiliser un layout de type Flexbox ?
+
+* si le layout d'un composant doit pouvoir passer d'un mode horizontal à vertical en fonction du form factor (changement du flex-direction) alors utiliser **Flexbox**
+* liste d'éléments nécessitant un affichage de type wrap ajusté. Possible en Grid mais les items auront tous la même taille.
+* nécessité d'avoir des container enfants flexibles
+
+**Cas d'école** : Le layout avec une navbar, un content qui doit prendre toute la hauteur, puis un footer
+
+Ici le **Grid** layout est encore le plus aproprié. Ce type de layout est généralement ennuyeux à régler avec Flexbox, alors que Grid gère ça très simplement avec
+
+````css
+
+body {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+nav {
+	background: blue;
+	gap: 1em;
+	display: flex;
+}
+footer {
+	background: black;
+	gap: 1em;
+	display: flex;
+}
+````
+
+````html
+<nav></nav>
+<body></body>
+<footer></footer>
+````
